@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
 
+import databaseConfig from './config/database';
 import routes from './routes';
 
 class App {
@@ -18,7 +20,11 @@ class App {
   }
 
   database() {
-    // TODO: Connect to mongoDB database
+    mongoose.connect(databaseConfig.uri, {
+      useCreateIndex: true,
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
   }
 
   routes() {

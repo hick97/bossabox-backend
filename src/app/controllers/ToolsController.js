@@ -4,9 +4,16 @@ import User from '../models/User';
 class ToolsController {
   // Listing tools by user
   async index(req, res) {
-    const tools = await User.findById(req.userId).populate('tools');
+    const { tag } = req.query;
+    const where = {};
 
-    return res.status(200).json(tools);
+    // Checking if have query params
+    if (tag !== undefined) {
+      where.tags = tag;
+    }
+    const user = await User.findById(req.userId).populate('tools', null, where);
+
+    return res.status(200).json(user.tools);
   }
 
   // Storing tool
@@ -41,7 +48,7 @@ class ToolsController {
 
     await user.save();
 
-    return res.status(200).json(tool);
+    return res.status(201).json(tool);
   }
 
   // Updating tool
@@ -72,7 +79,7 @@ class ToolsController {
 
     await Tools.findByIdAndDelete(toolId);
 
-    return res.status(200).send('Deleted');
+    return res.status(204);
   }
 }
 

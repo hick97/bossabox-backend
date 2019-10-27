@@ -21,8 +21,11 @@ routes.post('/user', UserController.store);
 routes.post('/session', SessionController.store);
 
 /* TOOLS */
+
 routes.use(authMiddleware);
-routes.post('/tools/store', ToolsController.store);
+routes.post('/tools', ToolsController.store);
 routes.get('/tools', ToolsController.index);
+routes.put('/tools/:id', ToolsController.update);
+routes.delete('tools/:id', ToolsController.delete);
 
 export default routes;

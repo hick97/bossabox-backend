@@ -1,4 +1,4 @@
-module.exports = {
-  secret: '9e8adbc5791f23368fddffbd089fbcaa',
-  ttl: 86400,
+export default {
+  secret: process.env.APP_SECRET,
+  expiresIn: '7d',
 };

@@ -152,6 +152,12 @@ You may create a tool using this action. It takes a JSON object containing title
 
 * Request (application/json)
 
+  - Headers
+
+          Authorization: Bearer `your token`
+
+  - Body
+
         {
             "title": "hotel",
             "link": "https://github.com/typicode/hotel",
@@ -194,6 +200,12 @@ You may update a tool using this action. It takes a JSON object containing at le
 
 * Request (application/json)
 
+  - Headers
+
+          Authorization: Bearer `your token`
+
+  - Body
+
         {
             "title": "new name",
             "link": "https://newurl.com/typicode/hotel",
@@ -221,4 +233,10 @@ You may update a tool using this action. It takes a JSON object containing at le
 
 ### Deleting Tool [DELETE]
 
-- Response 204
+- Request (application/json)
+
+  - Headers
+
+          Authorization: Bearer `your token`
+
+* Response 204

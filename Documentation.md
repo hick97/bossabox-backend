@@ -233,7 +233,7 @@ You may update a tool using this action. It takes a JSON object containing at le
 
 ### Deleting Tool [DELETE]
 
-- Request (application/json)
+- Request
 
   - Headers
 
